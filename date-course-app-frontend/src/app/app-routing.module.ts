@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'index',
+    pathMatch: 'full'
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'index',
+        loadChildren: () => import('./pages/index/index.module').then(m => m.IndexPageModule)
+      },
+      {
+        path: 'recommend',
+        loadChildren: () => import('./pages/recommend/recommend.module').then(m => m.RecommendPageModule)
+      }
+    ]
   },
+
 ];
 
 @NgModule({
