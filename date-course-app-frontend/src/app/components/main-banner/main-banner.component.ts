@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
+
+SwiperCore.use([Pagination]);
 
 @Component({
   selector: 'app-main-banner',
@@ -7,8 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainBannerComponent implements OnInit {
 
+  @HostBinding('class.w-full') fullWidth = true;
+
+  swiperConfig: SwiperOptions = {
+    slidesPerView: 1,
+    height: 100,
+    navigation: true,
+    pagination: true,
+    loop: true
+  };
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

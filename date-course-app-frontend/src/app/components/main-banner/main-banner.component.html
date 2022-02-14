@@ -1,3 +1,17 @@
-<p>
-  main-banner works!
-</p>
+<swiper [config]="swiperConfig">
+  <ng-template swiperSlide>
+    <div class="w-full aspect-video">
+      <img class="object-fill" src="https://picsum.photos/1600/900?random=1" />
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="w-full aspect-video">
+      <img class="object-fill" src="https://picsum.photos/1600/900?random=2" />
+    </div>
+  </ng-template>
+  <ng-template swiperSlide>
+    <div class="w-full aspect-video">
+      <img class="object-fill" src="https://picsum.photos/1600/900?random=3" />
+    </div>
+  </ng-template>
+</swiper>
