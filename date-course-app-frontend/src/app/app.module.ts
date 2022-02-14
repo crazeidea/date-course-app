@@ -14,7 +14,7 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot({
-      mode: 'ios'
+      mode: 'md'
     }),
     AppRoutingModule,
     LayoutModule
