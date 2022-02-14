@@ -1,4 +1,4 @@
-<swiper [config]="swiperConfig">
+<swiper [config]="swiperConfig" (swiper)="setSwiperInstance($event)">
   <ng-template swiperSlide>
     <div class="w-full aspect-video">
       <img class="object-fill" src="https://picsum.photos/1600/900?random=1" />

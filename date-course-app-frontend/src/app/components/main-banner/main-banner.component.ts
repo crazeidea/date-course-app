@@ -1,5 +1,5 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
+import { AfterContentInit, Component, HostBinding, OnInit } from '@angular/core';
+import SwiperCore, { Pagination, Swiper, SwiperOptions } from 'swiper';
 
 SwiperCore.use([Pagination]);
 
@@ -8,20 +8,34 @@ SwiperCore.use([Pagination]);
   templateUrl: './main-banner.component.html',
   styleUrls: ['./main-banner.component.scss'],
 })
-export class MainBannerComponent implements OnInit {
+export class MainBannerComponent implements OnInit, AfterContentInit {
 
   @HostBinding('class.w-full') fullWidth = true;
+
+  swiper: Swiper;
 
   swiperConfig: SwiperOptions = {
     slidesPerView: 1,
     height: 100,
     navigation: true,
     pagination: true,
-    loop: true
+    loop: true,
   };
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
+
+  ngAfterContentInit(): void {
+    setInterval(() => {
+      this.swiper.slideNext();
+    }, 3000);
+  }
+
+  setSwiperInstance(swiper) {
+    this.swiper = swiper;
+  }
 
 }
